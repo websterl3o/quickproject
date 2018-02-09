@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/leowebster/Desktop/Sites/quickstart",
+           	"follow_symlinks": "true",
+           	"path": ".",
+		}
+	],
+	"settings":{
+		"xdebug":{
+			"url" : "http://127.0.0.1:8000" 
+		}
+	}
+}
