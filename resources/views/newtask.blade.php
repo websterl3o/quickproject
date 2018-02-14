@@ -64,7 +64,7 @@
                                                 <input type="text" name="file" id="file" class="file span8" placeholder="Arquivo" readonly="readonly" style="width: 100%; height: 36px;">
                                             </td>
                                             <td colspan="">
-                                                <input type="button" class="btn btn-primary span3" referencia="arquivo" value="SELECIONAR" style="width: 100%"> 
+                                                <button type="button" class="btn btn-primary span3" referencia="arquivo" style="width: 100%"> SELECIONAR </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -89,26 +89,30 @@
 
 @section('scripts')
     <script type="text/javascript">
-        $('.span3').on('click', function() {
-            // alert($(this).attr('referencia'));
+        $(document).on('click', "button.span3" ,function(){
+            console.log(`passo`);
+            alert($(this).attr('referencia'));
             var seleciona = $(this).attr('referencia');
             $('input[name="'+seleciona+'"]').trigger('click');
         });
 
         $('.arquivo').on('change', function() {
-            alert($(this).attr('referencia'));
+            // alert($(this).attr('referencia'));
+            console.log("entro");
             var seleciona = $(this).attr('referencia');
             var fileName = $(this)[0].files[0].name;
-            $('input[name"'+seleciona+'"]').val(fileName);
+            $('#'+seleciona).val(fileName);
         });
 
         $('#Adiciona').on('click', function() {
-            alert($('#contador_campos').val());
-            var contador = $('#contador_campos').val();
+            // alert($('#contador_campos').val());
+            var contador = parseInt($('#contador_campos').val());
             contador = contador+1;
-            alert(contador);
+            console.log(contador);
+            $('#contador_campos').val(contador);
+            // alert(contador);
             $('#listaArqs').append(
-                '<tr scope="row"> <td style="display: none"><input type="file" name="arquivo'+contador+'" id="arquivo" referencia="file'+contador+'" class="arquivo"></td><td colspan=""><input type="text" name="file'+contador+'" id="file" class="file span8" placeholder="Arquivo" readonly="readonly" style="width: 100%; height: 36px;"></td><td colspan=""><input type="button" class="btn btn-primary span3" referencia="arquivo'+contador+'" value="SELECIONAR" style="width: 100%"></td></tr>'
+                '<tr scope="row"> <td style="display: none"><input type="file" name="arquivo'+contador+'" id="arquivo" referencia="file'+contador+'" class="arquivo"></td><td colspan=""><input type="text" name="file" id="file'+contador+'" class="file span8" placeholder="Arquivo" readonly="readonly" style="width: 100%; height: 36px;"></td><td colspan=""><button type="button" class="btn btn-primary span3" referencia="arquivo'+contador+'" style="width: 100%"> SELECIONAR </button></td></tr>'
                 );
         });
 
