@@ -45,10 +45,10 @@
                                         
                                         @forelse ($arquivo as $item)
                                             <tr>
-                                                <td>{{ $item->originalName }}</td>
+                                                <td> {{ $item->originalName }} </td>
                                                 <td>
                                                     <div class="col">
-                                                        <form action="/deletaTask" method="post" accept-charset="utf-8" style="margin: 2px;position: relative;float: left;">
+                                                        <form action="/deletaTask" method="post" accept-charset="utf-8" style="margin: 2px;">
                                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                             <input type="hidden" name="_method" value="DELETE">
                                                             <input type="hidden" name="codTask" value="{{ $task->id }}">
@@ -60,17 +60,12 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            @empty ($item)
+                                            @empty 
                                                 <tr>
                                                     <td>Não existem documentos vinculados a está task.</td>
                                                     <td></td>
                                                 </tr>
-                                            @endempty
                                         @endforelse
-                                        <?php
-                                            echo $arquivo;
-                                        ?>
-                                        
                                     </tbody>
                                 </table>
                             </div>
