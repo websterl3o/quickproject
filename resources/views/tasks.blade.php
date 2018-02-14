@@ -78,14 +78,11 @@
                                             </form>
                                         </div>
                                         <div class="col">
-                                            <form action="/task" method="post" accept-charset="utf-8" style="margin: 2px;position: relative;float: left;">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <!-- Indicates a successful or positive action -->
+                                            <a href="/task?codTask={{ $task->id }}" title="" style="margin: 2px;position: relative;float: left;">
                                                 <button type="submit" style="width: 100%;" class="btn btn-warning" id="concluiTarefa">
                                                     <span class="glyphicon glyphicon-edit"></span> Editar
                                                 </button>
-                                                <input type="hidden" name="codTask" value="{{ $task->id }}">
-                                            </form>
+                                            </a>
                                         </div>
                                         <div class="col">
                                             <form action="/deletaTask" method="post" accept-charset="utf-8" style="margin: 2px;position: relative;float: left;">

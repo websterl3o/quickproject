@@ -18,7 +18,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', function () { return redirect ("/home"); });
 
 /**
  * Show Task Dashboard
@@ -54,6 +54,11 @@ Route::put('/editarTask', "TasksController@editarTask");
  * Delete Task
  */
 Route::delete('/deletaTask', "TasksController@deletaTask");
+
+/**
+ * Delete Arquivo
+ */
+Route::delete('/deletaArquivo', "ArquivoController@deletaArquivo");
 
 
 

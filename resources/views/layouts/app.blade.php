@@ -31,11 +31,19 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
+                        @if(!Request::is('home'))
                         Home
+                        @else
+                        <b>Home</b>
+                        @endif
                     </a>
                     @auth 
                         <a class="navbar-brand" href="{{ url('/tasks') }}">
+                            @if(!Request::is('tasks'))
                             Tasks
+                            @else
+                            <b>Tasks</b>
+                            @endif
                         </a>
                     @endauth
                 </div>
@@ -50,7 +58,9 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
+                            @if(!Request::is('login'))
+                                <li><a href="{{ route('login') }}">Login</a></li>
+                            @endif
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
@@ -74,6 +84,7 @@
                             </li>
                         @endguest
                     </ul>
+
                 </div>
             </div>
         </nav>
