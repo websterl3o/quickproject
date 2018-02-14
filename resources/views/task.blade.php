@@ -53,12 +53,10 @@
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td scope="col"> {{ $item->originalName }} </td>
-                                            <td width="30%">
+                                            <td scope="col" style="vertical-align: middle;"> {{ $item->originalName }} </td>
+                                            <td width="30%" style="vertical-align: middle;">
                                                 <div class="col">
-                                            <b>**Aqui comeca o form</b>
                                                     <form action="/deletaArquivo" method="post" accept-charset="utf-8" style="margin: 2px;">
-                                            <b>**Aqui comeca o form</b>
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <input type="hidden" name="codArquivo" value="{{ $item->id }}">
