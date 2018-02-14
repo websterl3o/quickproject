@@ -32,12 +32,12 @@ class TasksController extends Controller
      * Lista todas as Task do Banco
     */
     public function vertask(Request $request){
-        // $tasks = \Tasks::paginate(10);
-        // $tasks = new Tasks;
+        
         $task = Task::find($request->codTask);
-        // dd($task);
-        // return view('user.index', ['users' => $users]);
-        return view('task', compact('task'));
+        $arquivo = Arquivo::where('id_task', '=', $request->codTask)->get();
+        // $dados->task = $task;
+        // $dados->arquivo = $arquivo;
+        return view('task', compact('task','arquivo'));
     }
 
     /**
@@ -50,34 +50,22 @@ class TasksController extends Controller
         $dados->descricao = $request->descricao;
         $dados->status = 0;
         $dados->save();
-        $path = $request->file('arquivo1')->store('local');
-        /*
-        $_FILE = $request->file();
-        foreach ($_FILE as $item) {
-            $arquivo = new Arquivo();
-            $var = 0;
-            whille($var = 1){
-                $return = md5(date("Y-m-d H:i:s"));
-                $arquivo = Arquivo::where('hash', '=', $return)->first();
-                if($arquivo){
-                    $var = 0;
-                }
-                else{
-                    $var = 1;
-                }
-            }
-            $arquivo->hash          = $return;
-            $arquivo->originalName  = $item['name'];
-            $arquivo->local         = './';
-            $arquivo->mimeType      = $item['type'];
-            $arquivo->size          = $item['size'];
-            $arquivo->id_task       = $item['id_task'];
 
+        $id_task = $dados->id;
+        $dados = $request->file();
+
+        foreach ($request->file() as $item) {   
+            $path  = $item->store('public');
+            $arquivo = new Arquivo();
+            $arquivo->hash          = $item->hashName();
+            $arquivo->originalName  = $item->getClientOriginalName();
+            $arquivo->local         = 'public';
+            $arquivo->mimeType      = $item->getMimeType();
+            $arquivo->size          = $item->getSize();
+            $arquivo->id_task       = $id_task;
+            $arquivo->save();
         }
-        $arquivo->save();
-        die();
-        */
-        die();
+
         return redirect ("/tasks");
     }
 

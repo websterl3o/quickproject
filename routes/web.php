@@ -28,7 +28,7 @@ Route::get("/tasks", 'TasksController@listTasks');
 /**
  * Show Task Edit
  */
-Route::get("/task", 'TasksController@vertask');
+Route::match(['get', 'post'], "/task", 'TasksController@vertask');
 
 /**
  * Add New Task
@@ -38,7 +38,7 @@ Route::get('/newtask', function (Request $request) { return view('newtask'); });
 /**
  * Add save Task
  */
-Route::put('/savetask', "TasksController@salvaTask");
+Route::post('/savetask', "TasksController@salvaTask");
 
 /**
  * Marca conclusao de Task
@@ -48,7 +48,7 @@ Route::post('/marcarconclusao', "TasksController@marcarConclusao");
 /**
  * editar Task
  */
-Route::post('/editarTask', "TasksController@editarTask");
+Route::put('/editarTask', "TasksController@editarTask");
 
 /**
  * Delete Task
