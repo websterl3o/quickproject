@@ -49,7 +49,7 @@
                                             <td scope="col"> 
                                                 <div class="col" style="overflow: hidden; height: 100px; position: relative; width: 120px; border: 1px solid rgb(221, 221, 221); ">
                                                     <a href="{{Storage::url($item->hash)}}" target="_blanck" title="">
-                                                        <img src="{{Storage::url($item->hash)}}" alt="" style="">
+                                                        <img src="{{Storage::url($item->hash)}}" alt="" style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);">
                                                     </a>
                                                 </div>
                                             </td>

@@ -4,6 +4,23 @@
     New Tasks
 @endsection
 
+@section('style')
+    <style type="text/css" media="screen">
+        .arquivo {
+          display: none !important;
+        }
+        .file {
+          line-height: 30px;
+          height: 30px;
+          border: 1px solid #A7A7A7;
+          padding: 5px;
+          box-sizing: border-box;
+          font-size: 15px;
+          vertical-align: middle;
+        }
+    </style>
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -32,17 +49,31 @@
                                 <textarea name="descricao" style="width: 100%; border: 1px solid #ccc;"></textarea>    
                             </div>
 
-                            <div class="container-fluid">
-                                <input type="file" name="aqruivo1" value="" placeholder="">
-                            </div>
-                            <div class="container-fluid">
-                                <input type="file" name="arquivo2" value="" placeholder="">
-                            </div>
-                            <div class="container-fluid">
-                                <input type="file" name="arquivo3" value="" placeholder="">
-                            </div>
-                            <div class="container-fluid">
-                                <input type="file" name="arquivo4" value="" placeholder="">
+                            <div class="container-fluid" id="area_de_inputs_Files">
+                                <span>
+                                    Upload de aquivos: 
+                                </span>
+                                <br>
+                                <table class="table">
+                                    <tbody id="listaArqs">
+                                        <tr scope="row">
+                                            <td style="display: none">
+                                                <input type="file" name="arquivo" id="arquivo" referencia="file" class="arquivo">
+                                            </td>
+                                            <td colspan="">
+                                                <input type="text" name="file" id="file" class="file span8" placeholder="Arquivo" readonly="readonly" style="width: 100%; height: 36px;">
+                                            </td>
+                                            <td colspan="">
+                                                <input type="button" class="btn btn-primary span3" referencia="arquivo" value="SELECIONAR" style="width: 100%"> 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="container-fluid">
+                                    <button type="button" class="btn btn-warning span1" id="Adiciona" style="width: 100%"><span class="glyphicon glyphicon-plus"></span> Adicionar novo arquivo </button>
+                                </div>
+                                <input type="hidden" name="contador_campos" id="contador_campos" value="0">
                             </div>
 
                             <div style="margin: 10px 0 5px">
@@ -54,4 +85,33 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        $('.span3').on('click', function() {
+            // alert($(this).attr('referencia'));
+            var seleciona = $(this).attr('referencia');
+            $('input[name="'+seleciona+'"]').trigger('click');
+        });
+
+        $('.arquivo').on('change', function() {
+            alert($(this).attr('referencia'));
+            var seleciona = $(this).attr('referencia');
+            var fileName = $(this)[0].files[0].name;
+            $('input[name"'+seleciona+'"]').val(fileName);
+        });
+
+        $('#Adiciona').on('click', function() {
+            alert($('#contador_campos').val());
+            var contador = $('#contador_campos').val();
+            contador = contador+1;
+            alert(contador);
+            $('#listaArqs').append(
+                '<tr scope="row"> <td style="display: none"><input type="file" name="arquivo'+contador+'" id="arquivo" referencia="file'+contador+'" class="arquivo"></td><td colspan=""><input type="text" name="file'+contador+'" id="file" class="file span8" placeholder="Arquivo" readonly="readonly" style="width: 100%; height: 36px;"></td><td colspan=""><input type="button" class="btn btn-primary span3" referencia="arquivo'+contador+'" value="SELECIONAR" style="width: 100%"></td></tr>'
+                );
+        });
+
+
+    </script>
 @endsection
