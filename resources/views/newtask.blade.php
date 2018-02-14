@@ -31,11 +31,18 @@
                                 <br>
                                 <textarea name="descricao" style="width: 100%; border: 1px solid #ccc;"></textarea>    
                             </div>
+
                             <div class="container-fluid">
                                 <input type="file" name="aqruivo1" value="" placeholder="">
                             </div>
                             <div class="container-fluid">
                                 <input type="file" name="arquivo2" value="" placeholder="">
+                            </div>
+                            <div class="container-fluid">
+                                <input type="file" name="arquivo3" value="" placeholder="">
+                            </div>
+                            <div class="container-fluid">
+                                <input type="file" name="arquivo4" value="" placeholder="">
                             </div>
 
                             <div style="margin: 10px 0 5px">

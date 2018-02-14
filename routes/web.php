@@ -55,5 +55,10 @@ Route::put('/editarTask', "TasksController@editarTask");
  */
 Route::delete('/deletaTask', "TasksController@deletaTask");
 
+/**
+ * Delete Arquivo
+ */
+Route::delete('/deletaArquivo', "ArquivoController@deletaArquivo");
+
 
 

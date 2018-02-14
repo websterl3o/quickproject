@@ -85,7 +85,7 @@ class TasksController extends Controller
      * Atera Task no Banco
     */
     public function editarTask(Request $request){
-        // echo $request;die();
+        echo $request;die();
         $task = Task::find($request->codTask);
         $task->nome = $request->nomeTarefa;
         $task->descricao = $request->descricao;
@@ -95,7 +95,7 @@ class TasksController extends Controller
     }
 
     /**
-     * Deleta Task no Banco   Clement
+     * Deleta Task no Banco 
     */
     public function deletaTask(Request $request){
         
