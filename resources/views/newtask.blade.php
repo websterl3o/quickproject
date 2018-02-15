@@ -90,15 +90,15 @@
 @section('scripts')
     <script type="text/javascript">
         $(document).on('click', "button.span3" ,function(){
-            console.log(`passo`);
-            alert($(this).attr('referencia'));
+            // console.log(`passo`);
+            // alert($(this).attr('referencia'));
             var seleciona = $(this).attr('referencia');
             $('input[name="'+seleciona+'"]').trigger('click');
         });
 
         $(document).on('change','.arquivo', function() {
             // alert($(this).attr('referencia'));
-            console.log("entro");
+            // console.log("entro");
             var seleciona = $(this).attr('referencia');
             var fileName = $(this)[0].files[0].name;
             $('#'+seleciona).val(fileName);
@@ -108,7 +108,7 @@
             // alert($('#contador_campos').val());
             var contador = parseInt($('#contador_campos').val());
             contador = contador+1;
-            console.log(contador);
+            // console.log(contador);
             $('#contador_campos').val(contador);
             // alert(contador);
             $('#listaArqs').append(
