@@ -33,8 +33,8 @@ class TasksController extends Controller
     */
     public function vertask(Request $request){
         
-        $task = Task::find($request->codTask);
-        $arquivo = Arquivo::where('id_task', '=', $request->codTask)->get();
+        $task = Task::find($request->id);
+        $arquivo = Arquivo::where('id_task', '=', $request->id)->get();
         // $dados->task = $task;
         // $dados->arquivo = $arquivo;
         return view('task', compact('task','arquivo'));

@@ -12,7 +12,7 @@ class TaskTableSeeder extends Seeder
      */
     public function run()
     {
-		Task::truncate();
+		// Task::truncate();
         factory(Task::class, 100)->create();    
     }
 }

@@ -28,7 +28,7 @@ Route::get("/tasks", 'TasksController@listTasks');
 /**
  * Show Task Edit
  */
-Route::match(['get', 'post'], "/task", 'TasksController@vertask');
+Route::match(['get', 'post'], "/task/{id}", 'TasksController@vertask');
 
 /**
  * Add New Task

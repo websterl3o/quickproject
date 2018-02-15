@@ -71,6 +71,7 @@
                                         </tr>
                                         @empty 
                                             <tr>
+                                                <td scope="col"></td>
                                                 <td scope="col">Não existem documentos vinculados a está task.</td>
                                                 <td scope="col"></td>
                                             </tr>

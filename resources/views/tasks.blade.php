@@ -78,7 +78,7 @@
                                             </form>
                                         </div>
                                         <div class="col">
-                                            <a href="/task?codTask={{ $task->id }}" title="" style="margin: 2px;position: relative;float: left;">
+                                            <a href="/task/{{ $task->id }}" title="" style="margin: 2px;position: relative;float: left;">
                                                 <button type="submit" style="width: 100%;" class="btn btn-warning" id="concluiTarefa">
                                                     <span class="glyphicon glyphicon-edit"></span> Editar
                                                 </button>
