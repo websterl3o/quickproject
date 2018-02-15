@@ -96,7 +96,7 @@
             $('input[name="'+seleciona+'"]').trigger('click');
         });
 
-        $('.arquivo').on('change', function() {
+        $(document).on('change','.arquivo', function() {
             // alert($(this).attr('referencia'));
             console.log("entro");
             var seleciona = $(this).attr('referencia');

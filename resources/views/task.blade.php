@@ -47,9 +47,9 @@
                                     @forelse ($arquivo as $item)
                                         <tr>
                                             <td scope="col"> 
-                                                <div class="col" style="overflow: hidden; height: 100px; position: relative; width: 120px; border: 1px solid rgb(221, 221, 221); ">
+                                                <div class="col" style="/*overflow: hidden; */height: 100px;width: 120px; border: 1px solid rgb(221, 221, 221); ">
                                                     <a href="{{Storage::url($item->hash)}}" target="_blanck" title="">
-                                                        <img src="{{Storage::url($item->hash)}}" alt="" style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);">
+                                                        <img src="{{Storage::url($item->hash)}}" alt="" style="width: 100%; max-height: 100%;">
                                                     </a>
                                                 </div>
                                             </td>
