@@ -48,7 +48,7 @@ Route::post('/marcarconclusao', "TasksController@marcarConclusao");
 /**
  * editar Task
  */
-Route::put('/editarTask', "TasksController@editarTask");
+Route::post('/editarTask', "TasksController@editarTask");
 
 /**
  * Delete Task

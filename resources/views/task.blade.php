@@ -17,7 +17,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form action="/editarTask" method="put" accept-charset="utf-8">
+                        <form action="/editarTask" method="post" id="editarTask" accept-charset="utf-8">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="hidden" name="codTask" value="{{ $task->id }}">
                             <div class="container-fluid">
@@ -83,7 +83,7 @@
                             <a href="/tasks" title="Cancelar">
                                 <button type="button" id="cancela" class="btn btn-danger" >Cancelar</button>
                                 </a>
-                            <button type="submit" class="btn btn-success" >Salvar</button>    
+                            <button type="submit" onclick="$('#editarTask').submit();" class="btn btn-success" >Salvar</button>    
                         </div>
                         
                     </div>
