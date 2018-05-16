@@ -13,7 +13,7 @@ class CreateArquivosTable extends Migration
      */
     public function up()
     {
-        Schema::create('arquivos', function (Blueprint $table) {
+        Schema::create('task_anexo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('hash');
             $table->string('originalName');
@@ -32,6 +32,6 @@ class CreateArquivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('arquivos');
+        Schema::dropIfExists('task_anexo');
     }
 }

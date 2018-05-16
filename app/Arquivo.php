@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Arquivo extends Model
 {
     use SoftDeletes;
+    protected $table = 'task_anexo';
     protected $fillable = [
         'hash',
 		'originalName',

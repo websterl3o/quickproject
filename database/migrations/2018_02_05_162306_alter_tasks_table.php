@@ -15,8 +15,6 @@ class AlterTasksTable extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             $table->renameColumn('name', 'nome');
-            $table->longText('descricao');
-            $table->boolean('status');
         });
     }
 
@@ -29,8 +27,6 @@ class AlterTasksTable extends Migration
     {
         Schema::table('tasks', function (Blueprint $table) {
             $table->renameColumn('nome', 'name');
-            $table->dropColumn('descricao');
-            $table->dropColumn('status');
         });
         
     }
