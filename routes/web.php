@@ -19,7 +19,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () { return redirect ("/home"); });
-
+/*
+    Route::group(['prefix' => 'produtos', 'as' => 'produtos.'], function () {
+        Route::get('/show/{id?}', ['as' => 'show', 'uses' => 'ProdutosController@show']);
+        Route::put('/update/{id?}', ['as' => 'update', 'uses' => 'ProdutosController@update']);
+        Route::delete('/{id}/destroy', ['as' => 'destroy', 'uses' => 'ProdutosController@destroy']);
+        Route::get('/list', ['as' => 'list', 'uses' => 'ProdutosController@list']);
+    });
+ */
 /**
  * Show Task Dashboard
  */
